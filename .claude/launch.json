@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "FastAPI Backend",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "uvicorn", "main:app", "--reload", "--port", "8000", "--app-dir", "/Users/turkoglu/Downloads/files"],
+      "port": 8000
+    },
+    {
+      "name": "React Frontend",
+      "runtimeExecutable": "/Users/turkoglu/.n/bin/node",
+      "runtimeArgs": ["/Users/turkoglu/Downloads/files/node_modules/.bin/vite", "--port", "5173"],
+      "port": 5173
+    }
+  ]
+}

@@ -43,7 +43,11 @@ class TradingOrchestrator:
     def __init__(self):
         # ── Brokers ────────────────────────────────────────────────────────────
         self.paper_broker = AlpacaBroker(BrokerMode.PAPER)
-        self.live_broker  = AlpacaBroker(BrokerMode.LIVE)
+        try:
+            self.live_broker = AlpacaBroker(BrokerMode.LIVE)
+        except ValueError:
+            logger.warning("No live API keys configured — live broker disabled, using paper broker as fallback")
+            self.live_broker = self.paper_broker
 
         # ── Agents ────────────────────────────────────────────────────────────
         self.scanner    = ScannerAgent(self.paper_broker)         # paper for scanning
